@@ -46,6 +46,7 @@
                                 <TextBlock Text="{Binding Manufacturer}"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding ProductCost }" TextDecorations="Strikethrough"/>
+                                    
                                     <TextBlock Text="{Binding CostWithDiscount, StringFormat='\{0} рублей'}"/>
                                 </StackPanel>
                                 

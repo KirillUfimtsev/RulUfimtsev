@@ -234,6 +234,12 @@ namespace RulUfimtsev.Pages
                 case "Клиент":
                     NavigationService.Navigate(new Client(user));
                     break;
+                case "Менеджер":
+                    NavigationService.Navigate(new Client(user));
+                    break;
+                case "Администратор":
+                    NavigationService.Navigate(new Admin(user));
+                    break; 
             }
 
             

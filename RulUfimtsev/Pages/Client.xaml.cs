@@ -29,6 +29,11 @@ namespace RulUfimtsev.Pages
         {
             InitializeComponent();
 
+            if(currentUser.UserRole == 2)
+            {
+
+            }
+
             var product = RulEntities.GetContext().Product.ToList();
             LViewProduct.ItemsSource = product;
             DataContext = this;
@@ -53,6 +58,7 @@ namespace RulUfimtsev.Pages
                 txtFullname.Text = "Гость";
             }
         }
+
 
         private void UpdateData()
         {
@@ -133,6 +139,11 @@ namespace RulUfimtsev.Pages
         {
             OrderWindow orderWindow = new OrderWindow(orderProducts,user);
             orderWindow.ShowDialog();
+        }
+
+        private void btnToOrders_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrderListPage());
         }
     }
 }

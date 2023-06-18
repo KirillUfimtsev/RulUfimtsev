@@ -86,6 +86,7 @@ namespace RulUfimtsev.Pages
             if (productList.Count == 0)
             {
                 MessageBox.Show("Заказ пустой!");
+                
                 return;
             }
             if (cmbPickUpPoint.SelectedItem == null)

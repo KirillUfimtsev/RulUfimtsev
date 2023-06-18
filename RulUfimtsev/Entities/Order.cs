@@ -32,5 +32,37 @@ namespace RulUfimtsev.Entities
         public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
+
+        public double Cost { get; set; }
+
+        public string OrStatus
+        {
+            get
+            {
+                if(OrderStatus == 1)
+                {
+                    return "Новый";
+                }
+                else
+                {
+                    return "Завершен";
+                }
+                
+            }
+        }
+        public double CostWithDiscount { get; set; }
+        public string CostString { get; set; }
+        public string CostWithDiscountString { get; set; }
+        public string ProductList { get; set; }
+        
+        public string DeliveryDate
+        {
+            get
+            {
+                return OrderDeliveryDate.ToString("D");
+            }
+        }
+        
+        public List<Product> productList { get; set; }
     }
 }

@@ -113,22 +113,11 @@ namespace RulUfimtsev.Pages
 
         List<Product> orderProducts = new List<Product>();
 
-        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
-        {
-            orderProducts.Add(LViewProduct.SelectedItem as Product);
-
-            if (orderProducts.Count > 0)
-            {
-                btnOrder.Visibility = Visibility.Visible;
-
-                btnAddProduct.Visibility = Visibility.Visible;
-            }
-        }
+        
 
         private void btnOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderWindow orderWindow = new OrderWindow(orderProducts, user);
-            orderWindow.ShowDialog();
+            NavigationService.Navigate(new OrderListPage());
         }
 
         private void LViewProduct_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -141,5 +130,17 @@ namespace RulUfimtsev.Pages
             NavigationService.Navigate(new AddEditProductPage(null));
 
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(Visibility == Visibility.Visible)
+            {
+                RulEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                LViewProduct.ItemsSource = RulEntities.GetContext().Product.ToList();
+                UpdateData();
+            }
+        }
+
+       
     }
 }

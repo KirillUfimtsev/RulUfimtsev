@@ -15,7 +15,7 @@
         </sys:String>
     </Page.Resources>
 
-    <ScrollViewer>
+    <ScrollViewer >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -33,6 +33,9 @@
 
                 <TextBlock Text="Категория: "/>
                 <ComboBox Name="cmbCategory" SelectedItem="{Binding ProductCategory}"/>
+
+                <TextBlock Text="Производитель: "/>
+                <ComboBox Name="cmbMaker" SelectedItem="{Binding MakerList}"/>
 
                 <TextBlock Text="Количество на складе: "/>
                 <TextBox Name="txtCountInStock" Text="{Binding ProductQuantityInStock}"/>
